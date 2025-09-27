@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For You — A Little Page From My Heart</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <meta name="description" content="A heartfelt, cinematic page explaining why I love you and how I care.">
+
+  <style>
+    /* --------- Variables & Base --------- */
+    :root{
+      --bg-dark: #0b0710;
+      --accent: #ff4d79;
+      --accent-2: #ffd1dd;
+      --glass: rgba(255,255,255,0.06);
+      --muted: rgba(255,255,255,0.75);
+      --max-width: 1400px;
+    }
+
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,77,121,0.06), transparent 8%),
+                  radial-gradient(900px 400px at 90% 90%, rgba(255,209,221,0.03), transparent 10%),
+                  var(--bg-dark);
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+    }
+
+    /* 4K-optimized scaling helper */
+    @media (min-width:2560px){
+      :root { --scale: 1.28; }
+    }
+    @media (min-width:3840px){
+      :root { --scale: 1.45; }
+    }
+    :root { --scale: 1; }
+
+    /* ---------- Hero / full background ---------- */
+    .hero{
+      min-height: 92vh;
+      width:100%;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: clamp(32px, 5vw, 80px);
+      background-image: url('sunset-4k.jpg'); /* placeholder (replace) */
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    /* subtle overlay to keep text readable */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.55));
+      z-index:1;
+      pointer-events:none;
+    }
+
+    /* container */
+    .wrap{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap: clamp(18px, 3vw, 40px);
+      align-items: start;
+      color: var(--muted);
+    }
+
+    /* card (left) */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius: 20px;
+      padding: clamp(20px, 3.2vw, 48px);
+      box-shadow: 0 30px 80px rgba(4,4,12,0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px) saturate(120%);
+      transform-origin: center;
+      animation: fadeInUp .9s ease both;
+    }
+h1, h2, h3 {
+  font-family: "Nanum Pen Script", cursive;
+}
+    h1{
+     
+      color: white;
+      font-size: clamp(36px, 6vw, 84px);
+      line-height:0.9;
+      margin-bottom: 8px;
+      text-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .lead{
+      font-size: clamp(14px, 1.4vw, 18px);
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 18px;
+    }
+
+    /* right side profile */
+    .side{
+      padding: clamp(16px,2.8vw,26px);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 20px 60px rgba(4,4,12,0.5);
+      text-align:center;
+      animation: fadeIn .9s ease .15s both;
+    }
+    .portrait{
+      width:100%;
+      max-width: 300px;
+      margin: 0 auto 12px;
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .portrait img{ display:block; width:100%; height:auto; object-fit:cover; }
+
+    .side h3{ font-family: "Great Vibes", cursive; font-size: clamp(22px, 2.8vw, 36px); color: #fff; margin-bottom:6px; }
+    .side p{ color:var(--muted); font-size:14px; margin-bottom:10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight:700;
+      background: linear-gradient(90deg, var(--accent), #e84a7a);
+      color: white;
+      border:none;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow: 0 14px 36px rgba(255,77,121,0.18);
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s;
+    }
+    .btn.secondary{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-weight:600;
+      box-shadow:none;
+    }
+    .btn:active{ transform: translateY(2px) }
+
+    /* sections below hero */
+    main section {
+      max-width: var(--max-width);
+      margin: 36px auto;
+      padding: 28px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      color: var(--muted);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+      animation: fadeIn .9s ease both;
+    }
+    section h2{
+      font-family: "Great Vibes", cursive;
+      color: white;
+      font-size: clamp(28px, 4vw, 46px);
+      margin-bottom: 12px;
+    }
+    section p{ margin-bottom: 12px; font-size: clamp(14px, 1.4vw, 18px); color: rgba(255,255,255,0.92) }
+
+    /* lists */
+    .reasons { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .reason{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+    }
+    .reason strong{ display:block; font-weight:700; color: #fff; margin-bottom:8px; font-size:16px; }
+
+    /* floating hearts (canvas-like) */
+    .hearts{
+      position: absolute;
+      inset: 0;
+      pointer-events:none;
+      z-index:3;
+      overflow: visible;
+      mix-blend-mode: screen;
+    }
+    .heart{
+      position:absolute;
+      font-size: 18px;
+      transform: translateY(0) scale(.7);
+      opacity: 0;
+      animation: floatUp linear both;
+      filter: drop-shadow(0 6px 10px rgba(255,77,121,0.18));
+    }
+
+    @keyframes floatUp{
+      0%{ opacity: 0; transform: translateY(20px) scale(.6); }
+      10%{ opacity: 1; }
+      100%{ opacity: 0; transform: translateY(-420px) scale(1.05); }
+    }
+
+    /* typing effect for small sincere message */
+    .typewriter {
+      display:inline-block;
+      border-right: 2px solid rgba(255,255,255,0.12);
+      white-space:nowrap;
+      overflow:hidden;
+      animation: typing 4.5s steps(40) 1, blink .8s step-end infinite;
+      font-size: clamp(14px, 1.2vw, 18px);
+      color: var(--accent-2);
+    }
+    @keyframes typing{
+      from{ width:0 }
+      to{ width:100% }
+    }
+    @keyframes blink{
+      50%{ border-color: transparent }
+    }
+
+    /* tiny music control */
+    .music-control{ display:flex; gap:10px; align-items:center; justify-content:center; margin-top:10px }
+    .music-control button{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:8px 12px; border-radius:10px; cursor:pointer }
+
+    /* responsive */
+    @media (max-width:1100px){
+      .wrap{ grid-template-columns: 1fr; padding-bottom: 12px }
+      .reasons{ grid-template-columns: 1fr; }
+      .side{ order:-1 }
+    }
+
+    /* reduce motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition: none !important; }
+      .heart { display:none }
+    }
+
+    /* accessibility helper for focus outlines */
+    a:focus, button:focus { outline: 3px solid rgba(255,77,121,0.14); outline-offset: 3px; }
+@media (max-width: 900px) {
+  h1 {
+    font-size: clamp(28px, 5vw, 48px);
+  }
+  .wrap {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .side {
+    margin-top: 20px;
+  }
+  .portrait img {
+    max-width: 200px;
+  }
+}
+
+/* Phones (<= 600px) */
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 40px;
+  }
+  section {
+    padding: 18px;
+    margin: 20px auto;
+  }
+  .reasons {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .reason {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .btn, .btn.secondary {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  #sad-confession p {
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+  #sad-confession h2 {
+    font-size: 26px;
+  }
+}
+
+/* Ultra wide (>= 2560px) */
+@media (min-width: 2560px) {
+  h1 {
+    font-size: 96px;
+  }
+  section h2 {
+    font-size: 60px;
+  }
+  .reason {
+    padding: 24px;
+    font-size: 20px;
+  }
+}
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 420px); /* column shrinks on small screens */
+  gap: clamp(18px, 3vw, 40px);
+  align-items: start;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px; /* adds breathing room on small screens */
+}
+
+/* Tablet & below: stack vertically */
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr; /* one column */
+  }
+  .side {
+    order: -1; /* show portrait first */
+    text-align: center;
+    max-width: 100%;
+  }
+  .portrait img {
+    width: 100%;
+    max-width: 200px; /* don’t let it grow too big */
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- music (placeholder) -->
+  <audio id="bg-music" src="romantic-music.mp3" loop preload="metadata"></audio>
+
+    <div class="hearts" aria-hidden="true"></div>
+
+
+
+
+
+  <!-- Sections -->
+ <section id="why-love" aria-labelledby="why-love-heading" data-aos="fade-up">
+  <h2 id="why-love-heading" data-aos="zoom-in">Why I Love You</h2>
+  <p data-aos="fade-right">There are so many small, true things that made my heart choose you. They are simple, but they're mine to keep and show:</p>
+    <div class="hearts" aria-hidden="true"></div>
+
+  <div class="reasons" role="list">
+    <div class="reason" role="listitem" data-aos="fade-up" data-aos-delay="100">
+      <strong>Your laugh lights rooms</strong>
+      <div>I love how your laugh turns heavy days into easy ones. I chase that sound like sunlight.</div>
+    </div>
+   
+    <div class="reason" role="listitem" data-aos="fade-up" data-aos-delay="300">
+      <strong>The way you dream</strong>
+      <div>Your ambitions and quiet hopes make me want to build a gentler, braver life with you.</div>
+    </div>
+    <div class="reason" role="listitem" data-aos="fade-up" data-aos-delay="400">
+      <strong>Your honesty, even when it's hard</strong>
+      <div>I admire your courage to speak truth — it teaches me to be braver, too.</div>
+    </div>
+  </div>
+</section>
+
+<section id="why-love-me" aria-labelledby="why-love-me-heading" data-aos="fade-up">
+  <h2 id="why-love-me-heading" data-aos="zoom-in">Why You Could Love Me</h2>
+  <p data-aos="fade-right">I'm not perfect, but I promise the parts of me that matter: care, effort, and constancy.</p>
+    <div class="hearts" aria-hidden="true"></div>
+
+  <div class="reasons" role="list">
+    <div class="reason" role="listitem" data-aos="fade-left" data-aos-delay="100">
+      <strong>I will support your dreams</strong>
+      <div>I'll show up at auditions, meetings, late-night edits — your goals are mine to cheer for.</div>
+    </div>
+    <div class="reason" role="listitem" data-aos="fade-left" data-aos-delay="200">
+      <strong>I will hold you accountable—and also hold you</strong>
+      <div>I will challenge you kindly and comfort you fiercely when you need it.</div>
+    </div>
+    <div class="reason" role="listitem" data-aos="fade-left" data-aos-delay="300">
+      <strong>I love small rituals</strong>
+      <div>From coffee to midnight songs, I want to create gentle routines that anchor us.</div>
+    </div>
+    <div class="reason" role="listitem" data-aos="fade-left" data-aos-delay="400">
+      <strong>I will choose honesty</strong>
+      <div>Every day I will choose truth, even when it’s hard — because you deserve nothing less.</div>
+    </div>
+  </div>
+</section>
+    <div class="hearts" aria-hidden="true"></div>
+
+<section id="care-despite" aria-labelledby="care-despite-heading" data-aos="fade-up">
+  <h2 id="care-despite-heading" data-aos="zoom-in">How I Care — Even If You Don't Feel The Same</h2>
+  <p data-aos="fade-right">Sometimes it seems like my efforts don’t matter, like my words fall short, and like I’m hard to love. That pain is real for me</p>
+
+  <div class="reasons" role="list">
+    <div class="reason" role="listitem" data-aos="flip-left" data-aos-delay="100">
+      
+      <div class="reason" role="listitem" data-aos="flip-left" data-aos-delay="200">
+      <strong>I respect your space</strong>
+
+      <div>If I say I will change, I will show up and do the work quietly and consistently.</div>
+    </div>
+    <div class="reason" role="listitem" data-aos="flip-left" data-aos-delay="300">
+      <strong>I will celebrate your wins — privately or loudly</strong>
+      <div>If you succeed, I will be the first to smile and clap — whether you notice or not.</div>
+    </div>
+    <div class="reason" role="listitem" data-aos="flip-left" data-aos-delay="400">
+      <strong>I will love ethically</strong>
+      <div>No guilt-traps, no pressure. Only honesty, boundaries, and respect for your feelings.</div>
+    </div>
+  </div>
+
+    <div class="hearts" aria-hidden="true"></div>
+
+</section>
+<!-- Sad Confession Section -->
+<section id="sad-confession" aria-labelledby="sad-confession-heading" style="background:#1a1a1a; color:#f0f0f0; padding:60px 20px; text-align:center;">
+  <h2 id="sad-confession-heading" 
+      style="font-family:'Nanum Pen Script', cursive; font-size:36px; color:#ff6b6b; margin-bottom:20px;" 
+      data-aos="fade-down" data-aos-duration="1200">
+    💔 My Heavy Truth 💔
+  </h2>
+    <div class="hearts" aria-hidden="true"></div>
+  
+  <p style="max-width:800px; margin:0 auto; font-size:20px; line-height:1.6;" 
+     data-aos="fade-up" data-aos-duration="1500">
+    I know you don’t feel the same way I do. You don’t love me, you don’t respect me, 
+    you don’t care about my feelings, and you don’t value my efforts.  
+    I’m talkative, a disgrace to humanity, a devil, a hindrance to your peace.  
+    All of this hurts 🥺🥺. 
+  </p>
+
+  <p style="max-width:800px; margin:20px auto 0; font-size:20px; line-height:1.6; color:#ffd6d6;" 
+     data-aos="fade-up" data-aos-delay="400" data-aos-duration="1500">
+    Yet, despite everything, I love you so much. All of this is for me, and I pray the Lord will heal me.  
+    I caused this by cheating, fine. I accept all the names, but please don’t forget — even at our worst, 
+    even when we were like enemies, I didn’t treat you this way.  
+    Even when I was at fault, I preferred taking the blame, just for the love I have for you.  
+  </p>
+
+  <p style="max-width:800px; margin:20px auto 0; font-size:22px; line-height:1.6; color:#ff8787; font-weight:bold;" 
+     data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1500">
+   How can i beleive you love me???😭💔 God.
+  </p>
+</section>
+    <div class="hearts" aria-hidden="true"></div>
+
+
+  <!-- footer CTA -->
+  <section aria-labelledby="final-heading" style="text-align:center; margin-top:28px">
+    <h2 id="final-heading">A Quiet Request</h2>
+    <p class="muted">If anything here needs a reply, please consider replying if its even one sentence. Your truth will always be respected.</p>
+    <div style="margin-top:12px">
+      <a class="btn" href="tel:+2349058830040?subject=From%20my%20heart">Say a word to me</a>
+    </div>
+  </section>
+
+  <!-- small credits -->
+  <footer style="text-align:center; margin-top:28px; color:rgba(255,255,255,0.6); font-size:13px">
+    Designed with love
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    /* ------------------ Hearts generator ------------------ */
+    const hearts = document.querySelector('.hearts');
+    const heartPool = ['❤','💕','💗','💖','❣️'];
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function spawnHeart() {
+      if (!hearts || prefersReduced) return;
+      const h = document.createElement('div');
+      h.className = 'heart';
+      const emoji = heartPool[Math.floor(Math.random()*heartPool.length)];
+      h.innerText = emoji;
+      const size = Math.round(12 + Math.random() * 40);
+      h.style.fontSize = size + 'px';
+      h.style.left = Math.round(Math.random() * 100) + '%';
+      h.style.bottom = '-20px';
+      const duration = 4000 + Math.random() * 4000;
+      h.style.animationDuration = duration + 'ms';
+      hearts.appendChild(h);
+      setTimeout(()=> {
+        h.remove();
+      }, duration + 200);
+    }
+
+    // gentle spawn
+    for (let i=0;i<6;i++) setTimeout(spawnHeart, i*300);
+    setInterval(spawnHeart, 800);
+
+    /* --------------- Music control --------------- */
+    const bgMusic = document.getElementById('bg-music');
+    const playBtn = document.getElementById('play-btn');
+    const muteBtn = document.getElementById('mute-toggle');
+
+    // don't autoplay (browsers often block) — allow user to start
+    playBtn.addEventListener('click', async () => {
+      try {
+        if (bgMusic.paused) {
+          await bgMusic.play();
+          playBtn.innerText = 'Pause music';
+          playBtn.setAttribute('aria-pressed','true');
+        } else {
+          bgMusic.pause();
+          playBtn.innerText = 'Play music';
+          playBtn.setAttribute('aria-pressed','false');
+        }
+      } catch (e) {
+        console.warn('Autoplay blocked or audio error', e);
+        alert('Your browser may block autoplay — please allow play or press Play again.');
+      }
+    });
+
+    muteBtn.addEventListener('click', () => {
+      if (!bgMusic) return;
+      bgMusic.muted = !bgMusic.muted;
+      muteBtn.innerText = bgMusic.muted ? 'Unmute' : 'Mute';
+    });
+
+    /* --------------- Smooth scroll to sections --------------- */
+    document.getElementById('read-more').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('why-love').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    /* --------------- Toggle animations --------------- */
+    const toggleAnimBtn = document.getElementById('toggle-animations');
+    let animEnabled = true;
+    toggleAnimBtn.addEventListener('click', () => {
+      animEnabled = !animEnabled;
+      if (!animEnabled) {
+        document.documentElement.style.setProperty('animation-play-state','paused');
+        document.documentElement.style.setProperty('transition','none');
+        toggleAnimBtn.innerText = 'Enable Animations';
+      } else {
+        document.documentElement.style.removeProperty('animation-play-state');
+        document.documentElement.style.removeProperty('transition');
+        toggleAnimBtn.innerText = 'Toggle Animations';
+      }
+    });
+
+    /* --------------- Small accessibility / keyboard helpers --------------- */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'm' || e.key === 'M') { // quick mute
+        if (bgMusic) {
+          bgMusic.muted = !bgMusic.muted;
+          muteBtn.innerText = bgMusic.muted ? 'Unmute' : 'Mute';
+        }
+      }
+      if (e.key === 'p' || e.key === 'P') { // quick play/pause
+        playBtn.click();
+      }
+    });
+
+    /* --------------- Respect prefers-reduced-motion at load --------------- */
+    if (prefersReduced) {
+      // stop hearts spawn loop
+      // hearts hidden by CSS in reduced-motion media query
+      console.log('prefers-reduced-motion: animations reduced');
+    }
+  </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: false,   // false = animation runs every time you scroll up/down
+    mirror: true,  // allow animation to run when scrolling back up
+    duration: 800, // (optional) smooth timing
+    offset: 100    // (optional) trigger point
+  });
+</script>
+</body>
+</html>

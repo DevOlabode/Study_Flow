@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Love for You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+       font-family: 'Nanum Pen Script', cursive;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+   video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    h1 {
+   font-family: 'Nanum Pen Script', cursive;
+
+      font-size: 4rem;
+      color: #ffccd5;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+    }
+
+    .content {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #ff8c94;
+      margin-bottom: 1rem;
+    }
+
+    p, ul {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #f5f5f5;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 0.5s;
+    }
+
+    ul {
+      list-style: none;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '♥';
+      color: #ff8c94;
+      position: absolute;
+      left: -20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #ff8c94;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 1s;
+    }
+
+    .cta-button:hover {
+      background: #ffccd5;
+    }
+
+    /* Heart Animation */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff8c94;
+      transform: rotate(45deg);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: #ff8c94;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p, ul {
+        font-size: 1rem;
+      }
+
+      .content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+     <video autoplay muted loop playsinline>
+      <source src="babe.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <h1>MAH REINA❤️🥺, I Love You More Than Words Can Say</h1>
+    <div class="content">
+      <h2>Why I’m Good to You</h2>
+      <ul>
+        <li>I support your dreams, cheering you on in every step you take toward your goals.</li>
+        <li>I love making you laugh, turning even your toughest days into moments of joy.</li>
+        <li>I always put you first, because your happiness is my greatest priority.</li>
+        <li>I listen to you, truly hear you, and cherish every moment we share.</li>
+      </ul>
+
+      <h2>Why You Should Forgive Me</h2>
+      <p>My love, I am deeply sorry for my mistake. Cheating was a one-time lapse, born out of my own insecurities, not a reflection of my feelings for you. I’ve learned from this, and it’s made me realize how irreplaceable you are. I promise you my unwavering loyalty, now and forever, because you are my everything.</p>
+
+      <h2>Why You Should Love Me Even More</h2>
+      <p>This painful moment has only deepened my love for you. I cherish every second we spend together, from your laughter to the quiet moments we share. Our future is bright, filled with adventures, trust, and a passion that grows stronger every day. I want to build a life with you, one where we face everything together.</p>
+    </div>
+    <a href="tel:09058830040" class="cta-button">Forgive Me and Let's Build Our Forever</a>
+  </div>
+
+  <audio autoplay loop>
+    <source src="romantic-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Generate floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 2 + 4 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 1000);
+
+    // Ensure audio plays on mobile
+    document.addEventListener('click', () => {
+      const audio = document.querySelector('audio');
+      if (audio.paused) audio.play();
+    });
+  </script>
+</body>
+</html>
+

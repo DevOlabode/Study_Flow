@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Flow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+
+<style>
+  
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+body{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #c4c3ca;
+	background-color: #e3e3e3;
+	overflow-x: hidden;
+}
+a {
+	cursor: pointer;
+  transition: all 200ms linear;
+}
+a:hover {
+	text-decoration: none;
+}
+.link {
+  color: #c4c3ca;
+}
+.link:hover {
+  color: #ffeba7;
+}
+p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.7;
+}
+h4 {
+  font-weight: 600;
+}
+h6 span{
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.section{
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.full-height{
+  min-height: 100vh;
+}
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label{
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 0;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: #ffeba7;
+}
+.switch-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #102770;
+  color: #ffeba7;
+  font-size: 20px;
+  cursor: pointer;
+  top: -10px;
+  left: -10px;
+  transition: all 0.5s ease;
+}
+
+.checkbox:checked + .switch-btn {
+  transform: translateX(44px) rotate(-270deg);
+}
+
+
+.card-3d-wrap {
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 400px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  margin-top: 60px;
+}
+.card-3d-wrapper {
+  width: 100%;
+  height: 100%;
+  position:absolute;    
+  top: 0;
+  left: 0;  
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: all 600ms ease-out; 
+}
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  background-color: #2a2b38;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 300%;
+  position: absolute;
+  border-radius: 6px;
+  left: 0;
+  top: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+  transform: rotateY(180deg);
+}
+.center-wrap{
+  position: absolute;
+  width: 100%;
+  padding: 0 35px;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 35px) perspective(100px);
+  z-index: 20;
+  display: block;
+}
+
+
+.form-group{ 
+  position: relative;
+  display: block;
+    margin: 0;
+    padding: 0;
+}
+.form-style {
+  padding: 13px 20px;
+  padding-left: 55px;
+  height: 48px;
+  width: 100%;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #c4c3ca;
+  background-color: #1f2029;
+  border: none;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.form-style:focus,
+.form-style:active {
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.input-icon {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: left;
+  color: #ffeba7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:-ms-input-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input::-moz-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:-moz-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input::-webkit-input-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus:-ms-input-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus::-moz-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus:-moz-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus::-webkit-input-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.btn{  
+  border-radius: 4px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-transition : all 200ms linear;
+  transition: all 200ms linear;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  border: none;
+  background-color: #ffeba7;
+  color: #102770;
+  box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+}
+.btn:active,
+.btn:focus{  
+  background-color: #102770;
+  color: #ffeba7;
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+.btn:hover{  
+  background-color: #102770;
+  color: #ffeba7;
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+
+
+
+
+.logo {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	display: block;
+	z-index: 100;
+	transition: all 250ms linear;
+}
+.logo img {
+	height: 26px;
+	width: auto;
+	display: block;
+}.ray {
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255,150,200,0.25), transparent);
+  transform: rotate(25deg);
+  animation: ray-move 8s linear infinite;
+}
+
+.ray.delay-1000 { animation-delay: 1s; }
+.ray.delay-2000 { animation-delay: 2s; }
+
+@keyframes ray-move {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(255, 128, 128, 0.5),
+                0 0 12px rgba(255, 128, 128, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 128, 128, 0.9),
+                0 0 24px rgba(255, 100, 100, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+#password-requirements {
+  animation: fadeIn 0.3s ease-in-out;
+  font-size: 13px;
+}
+
+#password-requirements ul li {
+  color: #f87171; 
+}
+
+#password-requirements ul li.valid {
+  color: #34d399; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+<body class="m-0 p-0">
+<section class="relative min-h-screen bg-gray-900 flex items-center justify-center overflow-hidden px-6">
+  
+  <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-orange-500/20 to-purple-500/20 blur-3xl"></div>
+  <canvas id="particles" class="absolute inset-0"></canvas>
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="ray"></div>
+    <div class="ray delay-1000"></div>
+    <div class="ray delay-2000"></div>
+  </div>
+  
+<div class="section">
+  <div class="container">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <h6 class="mb-0 pb-3 flex justify-center space-x-6">
+  <label for="reg-log" class="cursor-pointer">
+    <span>Log In</span>
+  </label>
+  <label for="reg-log" class="cursor-pointer">
+    <span>Sign Up</span>
+  </label>
+</h6>
+
+<input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Log In</h4>
+                    <div class="form-group">
+                      <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                      <i class="input-icon uil uil-at"></i>
+                    </div>
+                    <div class="form-group mt-2">
+                      <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <a href="#" class="btn mt-4">submit</a>
+                    <p class="mb-0 mt-4 text-center"><a href="forgot_pssd.php" class="link">Forgot your password?</a></p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-back">
+                <div class="center-wrap">
+                  
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Sign Up</h4>
+                     <form id="signupForm">
+                    <div class="form-group">
+                      <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                      <i class="input-icon uil uil-user"></i>
+                    </div>
+                    <div class="form-group mt-2">
+                      <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                      <i class="input-icon uil uil-at"></i>
+                    </div>
+                    <>
+                    
+                    <div class="form-group relative">
+  <input type="password" id="password" class="form-style" placeholder="Password">
+  <i class="input-icon uil uil-lock-alt"></i>
+  <span class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-yellow-400">
+      <i class="uil uil-eye-slash" id="togglePassword"></i>
+    </span>
+                    </div>
+
+  <div id="password-requirements" class="absolute left-0 top-full mb-3 w-full bg-gray-800 text-white text-sm p-3 rounded-md shadow-lg hidden">
+    <p class="mb-1 font-semibold">Password must contain:</p>
+    <ul class="list-disc ml-5 space-y-1">
+        
+      <li id="rule-length">✔ At least 8 characters</li>
+      <li id="rule-uppercase">✔ One uppercase (A–Z)</li>
+      <li id="rule-lowercase">✔ One lowercase (a–z)</li>
+      <li id="rule-number">✔ One number (0–9)</li>
+      <li id="rule-symbol">✔ One special character (!@#$%^&*)</li>
+    </ul>
+  </div>
+
+
+<div class="form-group mt-2 relative">
+  <input type="password" id="confirmPassword" class="form-style" placeholder="Confirm Password">
+  <i class="input-icon uil uil-lock-alt"></i>
+  <span class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-yellow-400">
+      <i class="uil uil-eye-slash" id="toggleConfirmPassword"></i>
+  </span>
+</div>
+<p id="confirm-msg" class="text-sm mt-1"></p>
+
+                    <a href="#" class="btn mt-4"><button id="submitBtn" class="cursor-not-allowed" disabled>
+  Submit
+</button>
+</a>
+</form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+const passwordField = document.getElementById("password");
+const confirmPasswordField = document.getElementById("confirmPassword");
+const togglePassword = document.getElementById("togglePassword");
+const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+const submitBtn = document.getElementById("submitBtn");
+const signupForm = document.getElementById("signupForm");
+const requirementsBox = document.getElementById("password-requirements");
+const confirmMsg = document.getElementById("confirm-msg");
+
+// Requirements list
+const requirementsList = {
+  length: document.getElementById("rule-length"),
+  upper: document.getElementById("rule-uppercase"),
+  lower: document.getElementById("rule-lowercase"),
+  number: document.getElementById("rule-number"),
+  symbol: document.getElementById("rule-symbol"),
+};
+
+// Validation function
+function validatePassword(password) {
+  return {
+    length: password.length >= 8,
+    upper: /[A-Z]/.test(password),
+    lower: /[a-z]/.test(password),
+    number: /\d/.test(password),
+    symbol: /[^A-Za-z0-9]/.test(password),
+    norepeat: !/(.)\1{1,}/.test(password), // no repetition
+  };
+}
+
+// Update requirements UI
+function updateRequirements(password) {
+  const result = validatePassword(password);
+
+  for (let key in requirementsList) {
+    if (result[key]) {
+      requirementsList[key].classList.add("valid");
+    } else {
+      requirementsList[key].classList.remove("valid");
+    }
+  }
+  return Object.values(result).every(Boolean);
+}
+
+// Enable/Disable submit button
+function checkFormValidity() {
+  const password = passwordField.value;
+  const confirmPassword = confirmPasswordField.value;
+
+  const validPassword = updateRequirements(password);
+  const passwordsMatch = password === confirmPassword && password !== "";
+
+  if (passwordsMatch) {
+    confirmMsg.textContent = "✅ Passwords match";
+    confirmMsg.classList.remove("text-red-500");
+    confirmMsg.classList.add("text-green-500");
+  } else if (confirmPassword !== "") {
+    confirmMsg.textContent = "❌ Passwords do not match";
+    confirmMsg.classList.remove("text-green-500");
+    confirmMsg.classList.add("text-red-500");
+  } else {
+    confirmMsg.textContent = "";
+  }
+
+  if (validPassword && passwordsMatch) {
+    submitBtn.disabled = false;
+    submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+  } else {
+    submitBtn.disabled = true;
+    submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+  }
+}
+
+// Toggle password visibility
+function toggleVisibility(field, icon) {
+  if (field.type === "password") {
+    field.type = "text";
+    icon.classList.remove("uil-eye-slash");
+    icon.classList.add("uil-eye");
+  } else {
+    field.type = "password";
+    icon.classList.remove("uil-eye");
+    icon.classList.add("uil-eye-slash");
+  }
+}
+
+// Show/hide requirements
+passwordField.addEventListener("focus", () => {
+  requirementsBox.classList.remove("hidden");
+});
+passwordField.addEventListener("blur", () => {
+  requirementsBox.classList.add("hidden");
+});
+
+// Events
+passwordField.addEventListener("input", checkFormValidity);
+confirmPasswordField.addEventListener("input", checkFormValidity);
+
+togglePassword.addEventListener("click", () => {
+  toggleVisibility(passwordField, togglePassword);
+});
+toggleConfirmPassword.addEventListener("click", () => {
+  toggleVisibility(confirmPasswordField, toggleConfirmPassword);
+});
+
+// Form submit
+signupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const password = passwordField.value;
+  const confirmPassword = confirmPasswordField.value;
+
+  if (!updateRequirements(password)) {
+    alert("Password does not meet all requirements.");
+    return;
+  }
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  alert("✅ Form submitted successfully!");
+  signupForm.reset();
+  confirmMsg.textContent = "";
+  checkFormValidity();
+});
+
+</script>
+</body>
+</html>

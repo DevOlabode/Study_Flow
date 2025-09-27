@@ -1,0 +1,531 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StudyFlow — Dashboard Mockup</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+</head>
+<style>
+    html,
+    body {
+      height: 100%;
+      font-family: 'Poppins', 'sans-serif';
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(6px);
+    }
+
+    </style>
+<body class="bg-slate-900 text-slate-100 antialiased">
+    <div class="bg-gray-700 rounded w-52 p-2 shadow-lg h-62 sidebar">
+      <h2 class="p-2 text-slate-900 font-[Poppins]">Study Flow</h2>
+      <div class="p-4 space-y-4 ">
+  <div class="bg-red-400 p-2">Item 1</div>
+  <div class="bg-green-400 p-2">Item 2</div>
+  <div class="bg-slate-900/60 p-2">Item 4</div>
+  <div class="bg-slate-900/60 p-2">Item 5</div>
+  <div class="bg-slate-900/60 p-2">Item 6</div>
+  <div class="bg-slate-900/60 p-2">Item 7</div>
+</div>
+<div class="relative w-40 h-40">
+  <div class="absolute top-0 left-0 w-20 h-20 bg-red-500 z-10"></div>
+  <div class="absolute top-2 left-2 w-20 h-20 bg-green-500 z-20"></div>
+  <div class="absolute top-4 left-4 w-20 h-20 bg-blue-500 z-30"></div>
+</div>
+<div class="flex flex-col space-y-4">
+  <div class="bg-red-400 p-2">Item 1</div>
+  <div class="bg-green-400 p-2">Item 2</div>
+  <div class="bg-blue-400 p-2">Item 3</div>
+</div>
+
+  </div>
+  
+</body>
+
+</html>
+  <main class="flex-1 flex flex-col md:flex-row p-4 gap-4">
+
+    <!-- Left: Tasks -->
+    <div class="flex-1 space-y-3">
+      <div class="flex justify-between items-center p-4 bg-slate-800/60 rounded">
+        <div class="flex flex-col">
+          <span class="font-bold text-sm">Reading</span>
+          <span class="text-gray-300 text-sm">Read CHM by 12pm</span>
+          <span class="text-gray-400 text-xs">Due: Tomorrow • 60 mins</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">Excited</span>
+          <span class="text-gray-400 text-xs mt-1">Subtasks: 4</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center p-4 bg-slate-800/60 rounded">
+        <div class="flex flex-col">
+          <span class="font-bold text-sm">Math HW</span>
+          <span class="text-gray-300 text-sm">Finish Set A by 3pm</span>
+          <span class="text-gray-400 text-xs">Due: Today • 90 mins</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded-full">Focused</span>
+          <span class="text-gray-400 text-xs mt-1">Subtasks: 3</span>
+        </div>
+      </div>
+      
+      <!-- Add more task cards here -->
+    </div>
+
+    <!-- Right: Task Cosmos -->
+    <div class="flex-1 relative h-[500px] md:h-full">
+      <!-- Central Avatar -->
+      <div class="w-24 h-24 rounded-full bg-teal-400 flex justify-center items-center text-white font-bold z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        You
+      </div>
+
+      <!-- Orb 1 -->
+      <div class="orbit orbit-slow" style="--distance:150px; transform: rotate(0deg) translateX(var(--distance)) rotate(0deg);">
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 group task-orb">
+          <div class="rounded-full w-16 h-16 bg-green-500 shadow-lg flex justify-center items-center text-white text-xs z-20 pulse-glow">Read CHM</div>
+          <div class="glass p-2 rounded shadow-md absolute -top-24 left-1/2 max-w-xs w-max break-words opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-white z-50 -translate-x-1/2">
+            <div class="font-bold">Reading</div>
+            <div class="text-gray-300">Read CHM by 12pm</div>
+            <div class="text-gray-400 text-xs">Due: Tomorrow • 60 mins</div>
+            <div class="text-gray-400 text-xs mt-1">Subtasks: 4</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orb 2 -->
+      <div class="orbit orbit-medium" style="--distance:180px; transform: rotate(72deg) translateX(var(--distance)) rotate(-72deg);">
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 group task-orb">
+          <div class="rounded-full w-16 h-16 bg-orange-500 shadow-lg flex justify-center items-center text-white text-xs z-20 pulse-glow">Math HW</div>
+          <div class="glass p-2 rounded shadow-md absolute -top-24 left-1/2 max-w-xs w-max break-words opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-white z-50 -translate-x-1/2">
+            <div class="font-bold">Math</div>
+            <div class="text-gray-300">Finish Set A by 3pm</div>
+            <div class="text-gray-400 text-xs">Due: Today • 90 mins</div>
+            <div class="text-gray-400 text-xs mt-1">Subtasks: 3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orb 3 -->
+      <div class="orbit orbit-fast" style="--distance:210px; transform: rotate(144deg) translateX(var(--distance)) rotate(-144deg);">
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 group task-orb">
+          <div class="rounded-full w-16 h-16 bg-purple-500 shadow-lg flex justify-center items-center text-white text-xs z-20 pulse-glow">Physics</div>
+          <div class="glass p-2 rounded shadow-md absolute -top-24 left-1/2 max-w-xs w-max break-words opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-white z-50 -translate-x-1/2">
+            <div class="font-bold">Physics</div>
+            <div class="text-gray-300">Read Chapter 4</div>
+            <div class="text-gray-400 text-xs">Due: Tomorrow • 45 mins</div>
+            <div class="text-gray-400 text-xs mt-1">Subtasks: 2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orb 4 -->
+      <div class="orbit orbit-medium" style="--distance:240px; transform: rotate(216deg) translateX(var(--distance)) rotate(-216deg);">
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 group task-orb">
+          <div class="rounded-full w-16 h-16 bg-red-500 shadow-lg flex justify-center items-center text-white text-xs z-20 pulse-glow">Chemistry</div>
+          <div class="glass p-2 rounded shadow-md absolute -top-24 left-1/2 max-w-xs w-max break-words opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-white z-50 -translate-x-1/2">
+            <div class="font-bold">Chemistry</div>
+            <div class="text-gray-300">Practice problems</div>
+            <div class="text-gray-400 text-xs">Due: Tomorrow • 60 mins</div>
+            <div class="text-gray-400 text-xs mt-1">Subtasks: 5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orb 5 -->
+      <div class="orbit orbit-slow" style="--distance:270px; transform: rotate(288deg) translateX(var(--distance)) rotate(-288deg);">
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 group task-orb">
+          <div class="rounded-full w-16 h-16 bg-blue-500 shadow-lg flex justify-center items-center text-white text-xs z-20 pulse-glow">English</div>
+          <div class="glass p-2 rounded shadow-md absolute -top-24 left-1/2 max-w-xs w-max break-words opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-white z-50 -translate-x-1/2">
+            <div class="font-bold">English</div>
+            <div class="text-gray-300">Write essay draft</div>
+            <div class="text-gray-400 text-xs">Due: Today • 30 mins</div>
+            <div class="text-gray-400 text-xs mt-1">Subtasks: 2</div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- End Task Cosmos -->
+  </main>
+</div>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyFlow — Responsive Task Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+html, body { height: 100%; font-family: 'Poppins', sans-serif; }
+
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  backdrop-filter: blur(6px);
+}
+
+/* Orbit keyframes */
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(var(--distance)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(var(--distance)) rotate(-360deg); }
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  animation: orbit linear infinite;
+}
+
+.orbit-slow { animation-duration: 20s; }
+.orbit-medium { animation-duration: 12s; }
+.orbit-fast { animation-duration: 8s; }
+
+/* Orb pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(255,255,255,0.4); }
+  50% { box-shadow: 0 0 20px rgba(255,255,255,0.8); }
+}
+.pulse-glow { animation: pulse-glow 2s infinite; }
+</style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased">
+
+<!-- Sidebar & Hamburger -->
+<div class="flex flex-col md:flex-row min-h-screen">
+ <aside class="sidebar fixed inset-y-0 left-0 w-64 bg-gray-900/90 glass 
+              p-6 border-r border-slate-800 z-50 transform -translate-x-full 
+              transition-transform duration-300 md:relative md:translate-x-0 md:block">
+  <div class="mb-6">
+    <h1 class="text-2xl font-bold text-teal-400">StudyFlow</h1>
+    <p class="text-xs text-slate-400 mt-1">Control Center</p>
+  </div>
+  <nav class="space-y-1 text-sm">
+    <a class="flex items-center gap-3 p-2 rounded hover:bg-slate-800" href="./"><i class="fa fa-chart-line w-4"></i><span>Dashboard</span></a>
+    <a class="flex items-center gap-3 p-2 rounded hover:bg-slate-800 bg-gray-600" href="#"><i class="fa fa-tasks w-4"></i><span>Tasks</span></a>
+    <a class="flex items-center gap-3 p-2 rounded hover:bg-slate-800" href="#"><i class="fa fa-stopwatch w-4"></i><span>Timer</span></a>
+    <a class="flex items-center gap-3 p-2 rounded hover:bg-slate-800" href="#"><i class="fa fa-users w-4"></i><span>Study Buddies</span></a>
+    <a class="flex items-center gap-3 p-2 rounded hover:bg-slate-800" href="#"><i class="fa fa-chart-pie w-4"></i><span>Analytics</span></a>
+    <a class="flex items-center gap-3 p-2 rounded hover:bg-slate-800" href="#"><i class="fa fa-robot w-4"></i><span>AI Tools</span></a>
+    <a class="flex items-center gap-3 p-2 rounded hover:bg-slate-800" href="#"><i class="fa fa-cog w-4"></i><span>Settings</span></a>
+  </nav>
+</aside>
+
+  <!-- Mobile Hamburger -->
+  <div class="md:hidden p-4">
+    <button id="menuButton" class="text-white text-2xl"><i class="fa fa-bars"></i></button>
+  </div>
+
+  <!-- Main Content -->
+</div>
+
+<!-- JS for mobile hamburger -->
+<script>
+const menuButton = document.getElementById('menuButton');
+const sidebar = document.querySelector('.sidebar');
+
+menuButton.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sidebar.classList.toggle('-translate-x-full');
+});
+
+document.addEventListener('click', (e) => {
+  const isClickInside = sidebar.contains(e.target) || menuButton.contains(e.target);
+  if (!isClickInside && !sidebar.classList.contains('-translate-x-full')) {
+    sidebar.classList.add('-translate-x-full');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === "Escape" && !sidebar.classList.contains('-translate-x-full')) {
+    sidebar.classList.add('-translate-x-full');
+  }
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="main-content ml-0 sm:ml-64 p-4 sm:p-6 w-full dashboard-container rounded-lg shadow-xl m-2 sm:m-4">
+    <h2 class="text-lg sm:text-xl font-semibold mb-4">Overview</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+      <div>
+        <h3 class="text-base sm:text-lg font-medium mb-2">Energy Bar ⚡</h3>
+        <div class="progress-bar h-6 rounded-full relative" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          <div id="energyBar" class="bg-teal-500 h-6 rounded-full transition-all duration-500 flex items-center justify-center text-xs font-bold" style="width: 80%;">
+            <span id="energyText" class="text-white">80%</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-base sm:text-lg font-medium mb-2">Streaks 🔥</h3>
+        <p class="text-sm sm:text-base">7 days</p>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-base sm:text-lg font-medium mb-2">Today's Tasks ✅</h3>
+      <ul id="taskList" class="space-y-2">
+        <li class="task-item p-2 rounded flex justify-between items-center" data-id="1">
+          <span>Math homework [Neutral]</span>
+          <button class="complete-task bg-teal-500/70 p-1 rounded text-xs sm:text-sm">Complete</button>
+        </li>
+        <li class="task-item p-2 rounded flex justify-between items-center" data-id="2">
+          <span>Read Biology [Stressed]</span>
+          <button class="complete-task bg-teal-500/70 p-1 rounded text-xs sm:text-sm">Complete</button>
+        </li>
+        <li class="task-item p-2 rounded flex justify-between items-center" data-id="3">
+          <span>Essay Draft [Excited]</span>
+          <button class="complete-task bg-teal-500/70 p-1 rounded text-xs sm:text-sm">Complete</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-base sm:text-lg font-medium mb-2">⏱️ Focus Flow Timer</h3>
+      <div class="flex items-center gap-4 flex-col sm:flex-row">
+        <button id="startTimer" class="px-4 py-2 bg-teal-500/70 rounded text-sm sm:text-base">Start Session</button>
+        <span id="timerDisplay" class="text-sm sm:text-base">00:00</span>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-base sm:text-lg font-medium mb-2">🎭 Mood vs. Productivity</h3>
+      <canvas id="moodChart" class="max-h-64 w-full"></canvas>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-base sm:text-lg font-medium mb-2">🔥 Subject Heatmap</h3>
+      <canvas id="heatmapChart" class="max-h-64 w-full"></canvas>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-base sm:text-lg font-medium mb-2">🧠 Smart Break Suggestion</h3>
+      <p id="breakSuggestion" class="text-sm sm:text-base">Quick Riddle!</p>
+      <button id="newBreakSuggestion" class="px-4 py-2 bg-teal-500/70 rounded text-sm sm:text-base mt-2">Get New Suggestion</button>
+    </div>
+  </div>
+    <script>
+    AOS.init({
+      duration: 800,
+      once: false,
+      disable: window.innerWidth < 640
+    });
+
+    // Load profile data
+    const profileData = JSON.parse(localStorage.getItem('profileData') || '{}');
+    const subjects = profileData.subjects ? profileData.subjects.split(',').map(s => s.trim()) : ['Math', 'Biology', 'English'];
+    const userMood = profileData.feelings || 'Neutral';
+
+    // Task Management
+    let tasks = JSON.parse(localStorage.getItem('tasks') || '[]') || [
+      { id: 1, text: 'Math homework', mood: 'Neutral', completed: false },
+      { id: 2, text: 'Read Biology', mood: 'Stressed', completed: false },
+      { id: 3, text: 'Essay Draft', mood: 'Excited', completed: false }
+    ];
+
+    function renderTasks() {
+      const taskList = document.getElementById('taskList');
+      taskList.innerHTML = tasks.map(task => `
+        <li class="task-item p-2 rounded flex justify-between items-center" data-id="${task.id}">
+          <span>${task.text} [${task.mood}]</span>
+          <button class="complete-task bg-teal-500/70 p-1 rounded text-xs sm:text-sm">Complete</button>
+        </li>
+      `).join('');
+      document.querySelectorAll('.complete-task').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = parseInt(btn.parentElement.dataset.id);
+          tasks = tasks.filter(task => task.id !== id);
+          localStorage.setItem('tasks', JSON.stringify(tasks));
+          renderTasks();
+          updateCharts();
+        });
+      });
+    }
+
+    // Timer
+    let timerInterval;
+    let seconds = 0;
+    document.getElementById('startTimer').addEventListener('click', () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        document.getElementById('startTimer').textContent = 'Start Session';
+        seconds = 0;
+      } else {
+        timerInterval = setInterval(() => {
+          seconds++;
+          const mins = Math.floor(seconds / 60);
+          const secs = seconds % 60;
+          document.getElementById('timerDisplay').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }, 1000);
+        document.getElementById('startTimer').textContent = 'Stop Session';
+      }
+    });
+
+    // AI Integration (xAI or OpenAI)
+    async function callAI(prompt, type = 'text') {
+      try {
+        const response = await fetch('https://api.x.ai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer YOUR_XAI_API_KEY',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            model: 'grok',
+            messages: [{ role: 'user', content: prompt }],
+            max_tokens: type === 'text' ? 100 : 500
+          })
+        });
+        const data = await response.json();
+        return data.choices[0].message.content;
+      } catch (error) {
+        console.error('AI API error:', error);
+        return 'Error generating response. Please try again.';
+      }
+    }
+
+    // Voice Task Input
+    document.getElementById('voiceTask').addEventListener('click', () => {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.onresult = async (event) => {
+        const taskText = event.results[0][0].transcript;
+        const newTask = { id: Date.now(), text: taskText, mood: userMood, completed: false };
+        tasks.push(newTask);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTasks();
+        updateCharts();
+      };
+      recognition.start();
+    });
+
+    // Manual Task Input
+    document.getElementById('addTask').addEventListener('click', () => {
+      const taskText = prompt('Enter task description:');
+      if (taskText) {
+        const newTask = { id: Date.now(), text: taskText, mood: userMood, completed: false };
+        tasks.push(newTask);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTasks();
+        updateCharts();
+      }
+    });
+
+    // Rewrite Task
+    document.getElementById('rewriteTask').addEventListener('click', async () => {
+      const taskText = prompt('Enter task to rewrite:');
+      if (taskText) {
+        const rewritten = await callAI(`Rewrite this task description to be more motivating: "${taskText}"`);
+        const newTask = { id: Date.now(), text: rewritten, mood: userMood, completed: false };
+        tasks.push(newTask);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTasks();
+        updateCharts();
+      }
+    });
+
+    // AI Exam Simulator
+    document.getElementById('examSimulator').addEventListener('click', async () => {
+      const subject = prompt('Enter subject for practice questions:');
+      if (subject) {
+        const questions = await callAI(`Generate 3 practice questions for ${subject} at an undergraduate level.`);
+        alert(`Practice Questions for ${subject}:\n${questions}`);
+      }
+    });
+
+    // Smart Break Suggestion
+    document.getElementById('newBreakSuggestion').addEventListener('click', async () => {
+      const preferredActivity = profileData.breakActivities || 'Quick Games';
+      const prompt = `Suggest a short break activity for a student who prefers ${preferredActivity} and is feeling ${userMood}.`;
+      const suggestion = await callAI(prompt);
+      document.getElementById('breakSuggestion').textContent = suggestion;
+    });
+
+    // Charts
+    function updateCharts() {
+      const moodCounts = tasks.reduce((acc, task) => {
+        acc[task.mood] = (acc[task.mood] || 0) + 1;
+        return acc;
+      }, {});
+      const moodData = {
+        labels: Object.keys(moodCounts),
+        datasets: [{
+          label: 'Tasks by Mood',
+          data: Object.values(moodCounts),
+          backgroundColor: 'rgba(20, 184, 166, 0.5)',
+          borderColor: 'rgba(20, 184, 166, 1)',
+          borderWidth: 1
+        }]
+      };
+      new Chart(document.getElementById('moodChart'), {
+        type: 'bar',
+        data: moodData,
+        options: {
+          scales: { y: { beginAtZero: true } },
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+
+      const heatmapData = subjects.map(subject => ({
+        subject,
+        hours: Math.floor(Math.random() * 10)
+      }));
+      const heatmapChartData = {
+        labels: subjects,
+        datasets: [{
+          label: 'Study Hours',
+          data: heatmapData.map(d => d.hours),
+          backgroundColor: heatmapData.map(d => `rgba(20, 184, 166, ${d.hours / 10})`),
+          borderColor: 'rgba(20, 184, 166, 1)',
+          borderWidth: 1
+        }]
+      };
+      new Chart(document.getElementById('heatmapChart'), {
+        type: 'bar',
+        data: heatmapChartData,
+        options: {
+          scales: { y: { beginAtZero: true } },
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+    }
+
+    renderTasks();
+    updateCharts();
+  </script> -->

