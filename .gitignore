@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Environment files
+.env
+
+# Media files (optional: ignore large video/audio files)
+*.mp4
+*.avi
+*.mov
+*.wav
+
+# Compiled files
+*.class
+*.exe
+*.dll
+*.so
+*.out
+
+# Build artifacts
+dist/
+build/
+
+# Dependency lock files (optional)
+package-lock.json
+yarn.lock
