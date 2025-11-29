@@ -4,7 +4,11 @@ const app = express();
 
 const path = require('path');
 
+require('./config/db')();
+
 app.use(express.static(path.join(__dirname, "views")));
+
+
 
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, "views", "index.html"));
