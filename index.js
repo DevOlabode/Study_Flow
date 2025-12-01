@@ -4,14 +4,22 @@ const app = express();
 
 const path = require('path');
 
-const authRoutes = require('./routes/auth')
+const session = require('express-session');
+const flash = require('connect-flash');
+
+const {sessionConfig} = require('./config/session');
+
+const authRoutes = require('./routes/auth');
 
 require('./config/db')();
 
-const User = require('./models/user')
+const User = require('./models/user');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+
+app.use(session(sessionConfig));
+app.use(flash())
 
 app.use(passport.initialize());
 app.use(passport.session());
