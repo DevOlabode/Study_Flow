@@ -4,11 +4,25 @@ const app = express();
 
 const path = require('path');
 
+const authRoutes = require('./routes/auth')
+
 require('./config/db')();
+
+const User = require('./models/user')
+
+const passport = require('passport');
+const localStrategy = require('passport-local')
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(path.join(__dirname, "views")));
 
-
+app.use('/', authRoutes);
 
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, "views", "index.html"));
