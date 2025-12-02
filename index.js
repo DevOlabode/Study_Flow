@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 const path = require('path');
+const ExpressError = require('./utils/ExpressError')
 
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -34,7 +35,28 @@ app.use('/', authRoutes);
 
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, "views", "index.html"));
-})
+});
+
+app.all(/(.*)/, (req, res, next) => {
+    next(new ExpressError('Page not found', 404))
+});
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Something Went Wrong!";
+
+  res.status(statusCode).send(`
+    <!DOCTYPE html>
+    <html>
+      <head><title>Error ${statusCode}</title></head>
+      <body>
+        <h1>Error ${statusCode}</h1>
+        <p>${message}</p>
+        <a href="/">Back to Home</a>
+      </body>
+    </html>
+  `);
+});
 
 const PORT = process.env.PORT;
 app.listen(PORT, ()=> console.log(`App is Listening on PORT ${PORT}`));
