@@ -6,6 +6,6 @@ module.exports.loginForm = (req, res)=>{
 };
 
 module.exports.login = async(req, res)=>{
-    const { email, password } = req.body;
+    // const { logemail, logpass } = req.body;
     console.log(req.body)
 }
