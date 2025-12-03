@@ -10,3 +10,7 @@ module.exports.login = (req, res)=>{
     const redirectUrl = res.locals.returnTo || '/'
     res.redirect(redirectUrl);
 };
+
+module.exports.signup = async(req, res) =>{
+    const {} = req.body;
+}
