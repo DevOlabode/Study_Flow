@@ -8,6 +8,8 @@ const ExpressError = require('./utils/ExpressError')
 const session = require('express-session');
 const flash = require('connect-flash');
 
+const ejsMate = require('ejs-mate')
+
 const {sessionConfig} = require('./config/session');
 
 const authRoutes = require('./routes/auth');
@@ -20,9 +22,10 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 
 app.use(session(sessionConfig));
-app.use(flash())
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -32,6 +35,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(path.join(__dirname, "views")));
+
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended : true}));
+app.engine('ejs', ejsMate);
+
 
 app.use((req, res, next)=>{
     res.locals.currentUser = req.user;
@@ -45,7 +53,7 @@ app.use((req, res, next)=>{
 app.use('/', authRoutes);
 
 app.get('/', (req,res) =>{
-    res.sendFile(path.join(__dirname, "views", "index.html"));
+    res.render('index')
 });
 
 app.all(/(.*)/, (req, res, next) => {

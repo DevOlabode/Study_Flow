@@ -2,7 +2,7 @@ const User = require('../models/user');
 const path = require('path')
 
 module.exports.loginForm = (req, res)=>{
-    res.sendFile(path.join(__dirname, "../views", "auth/login.html"));
+    res.render('auth/login')
 };
 
 module.exports.login = (req, res)=>{
