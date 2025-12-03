@@ -21,7 +21,6 @@ const LocalStrategy = require('passport-local').Strategy;
 
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use(session(sessionConfig));
 app.use(flash())
 
@@ -33,6 +32,15 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(path.join(__dirname, "views")));
+
+app.use((req, res, next)=>{
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    res.locals.info = req.flash('info');
+    res.locals.warning = req.flash('warning')
+    next();
+});
 
 app.use('/', authRoutes);
 

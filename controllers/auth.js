@@ -5,8 +5,8 @@ module.exports.loginForm = (req, res)=>{
     res.sendFile(path.join(__dirname, "../views", "auth/login.html"));
 };
 
-module.exports.login = async(req, res)=>{
-    // const { logemail, logpass } = req.body;
-    console.log(req.body);
-    res.send(req.body);
+module.exports.login = (req, res)=>{
+    req.flash('success', 'Welcome Back to Study Flow');
+    const redirectUrl = res.locals.returnTo || '/'
+    res.redirect(redirectUrl);
 };

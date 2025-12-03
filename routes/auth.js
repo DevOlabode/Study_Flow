@@ -4,8 +4,10 @@ const controller = require('../controllers/auth');
 
 const catchAsync = require('../utils/catchAsync');
 
+const {storeReturnTo, loginAuthenticate} = require('../middleware')
+
 router.get('/login', controller.loginForm);
 
-router.post('/login', catchAsync(controller.login));
+router.post('/login', storeReturnTo, loginAuthenticate, controller.login);
 
 module.exports = router;
