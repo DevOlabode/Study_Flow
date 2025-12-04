@@ -408,11 +408,16 @@ h6 span{
                     <h4 class="mb-4 pb-3">Sign Up</h4>
               <form id="signupForm" action="/signup" method="post">
                     <div class="form-group">
-                      <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                      <input type="text" name="name" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                      <i class="input-icon uil uil-user"></i>
+                    </div>
+
+                    <div class="form-group mt-2">
+                      <input type="text" name="username" class="form-style" placeholder="Username" id="logusername" autocomplete="off">
                       <i class="input-icon uil uil-user"></i>
                     </div>
                     <div class="form-group mt-2">
-                      <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                      <input type="email" name="email" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
                       <i class="input-icon uil uil-at"></i>
                     </div>
                     
@@ -489,7 +494,7 @@ function validatePassword(password) {
     lower: /[a-z]/.test(password),
     number: /\d/.test(password),
     symbol: /[^A-Za-z0-9]/.test(password),
-    norepeat: !/(.)\1{1,}/.test(password), // no repetition
+    norepeat: !/(.)\1{1,}/.test(password), 
   };
 }
 
@@ -527,14 +532,14 @@ function checkFormValidity() {
     confirmMsg.textContent = "";
   }
 
-//   if (validPassword && passwordsMatch) {
-//     submitBtn.disabled = false;
-//     submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
-//   } else {
-//     submitBtn.disabled = true;
-//     submitBtn.classList.add("opacity-50", "cursor-not-allowed");
-//   }
-// }
+  if (validPassword && passwordsMatch) {
+    submitBtn.disabled = false;
+    submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+  } else {
+    submitBtn.disabled = true;
+    submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+  }
+}
 
 // Toggle password visibility
 function toggleVisibility(field, icon) {
@@ -570,7 +575,6 @@ toggleConfirmPassword.addEventListener("click", () => {
 
 // Form submit
 signupForm.addEventListener("submit", (e) => {
-  e.preventDefault();
   const password = passwordField.value;
   const confirmPassword = confirmPasswordField.value;
 
@@ -582,11 +586,6 @@ signupForm.addEventListener("submit", (e) => {
     alert("Passwords do not match.");
     return;
   }
-
-  alert("✅ Form submitted successfully!");
-  signupForm.reset();
-  confirmMsg.textContent = "";
-  checkFormValidity();
 });
 
 </script>

@@ -4,13 +4,13 @@ const controller = require('../controllers/auth');
 
 const catchAsync = require('../utils/catchAsync');
 
-const {storeReturnTo, loginAuthenticate} = require('../middleware')
+const {storeReturnTo, loginAuthenticate, redirectIfLoggedIn} = require('../middleware')
 
-router.get('/login', controller.loginForm);
+router.get('/login', redirectIfLoggedIn, controller.loginForm);
 
 router.post('/login', storeReturnTo, loginAuthenticate, controller.login);
 
-router.get('/signup', controller.signupForm);
+router.get('/signup', redirectIfLoggedIn, controller.signupForm);
 
 router.post('/signup', catchAsync(controller.signup))
 

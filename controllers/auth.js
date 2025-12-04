@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const path = require('path')
 
 module.exports.loginForm = (req, res)=>{
     res.render('auth/login')
@@ -16,6 +15,14 @@ module.exports.signupForm = (req, res) =>{
 };
 
 module.exports.signup = async(req, res) =>{
-    const {logname, logemail, password} = req.body;
-    console.log(req.body)
+    const {name, email, password, username} = req.body;
+
+    const user = new User({username, email, name});
+    const registeredUser = await User.register(user, password);
+
+    req.login(registeredUser, err => {
+        if(err) return next(err)
+        req.flash('success', 'Welcome The StudyFlow');
+        res.redirect('/')
+    })
 }

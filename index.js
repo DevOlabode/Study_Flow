@@ -53,7 +53,8 @@ app.use((req, res, next)=>{
 app.use('/', authRoutes);
 
 app.get('/', (req,res) =>{
-    res.render('index')
+  req.flash('success', 'The Homepage')
+  res.render('index')
 });
 
 app.all(/(.*)/, (req, res, next) => {
