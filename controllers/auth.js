@@ -11,6 +11,11 @@ module.exports.login = (req, res)=>{
     res.redirect(redirectUrl);
 };
 
+module.exports.signupForm = (req, res) =>{
+    res.render('auth/login')
+};
+
 module.exports.signup = async(req, res) =>{
-    const {} = req.body;
+    const {logname, logemail, password} = req.body;
+    console.log(req.body)
 }

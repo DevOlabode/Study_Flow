@@ -406,7 +406,7 @@ h6 span{
                   
                   <div class="section text-center">
                     <h4 class="mb-4 pb-3">Sign Up</h4>
-                     <form id="signupForm">
+              <form id="signupForm" action="/signup" method="post">
                     <div class="form-group">
                       <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
                       <i class="input-icon uil uil-user"></i>
@@ -417,7 +417,7 @@ h6 span{
                     </div>
                     
                     <div class="form-group relative">
-  <input type="password" id="password" class="form-style" placeholder="Password">
+  <input type="password" id="password" class="form-style" placeholder="Password" name="password">
   <i class="input-icon uil uil-lock-alt"></i>
   <span class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-yellow-400">
       <i class="uil uil-eye-slash" id="togglePassword"></i>
@@ -438,7 +438,7 @@ h6 span{
 
 
 <div class="form-group mt-2 relative">
-  <input type="password" id="confirmPassword" class="form-style" placeholder="Confirm Password">
+  <input type="password" id="confirmPassword" class="form-style" placeholder="Confirm Password" name="confirmPassword">
   <i class="input-icon uil uil-lock-alt"></i>
   <span class="toggle-password absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-yellow-400">
       <i class="uil uil-eye-slash" id="toggleConfirmPassword"></i>
@@ -446,10 +446,9 @@ h6 span{
 </div>
 <p id="confirm-msg" class="text-sm mt-1"></p>
 
-                    <a href="#" class="btn mt-4"><button id="submitBtn" class="cursor-not-allowed" disabled>
+<button id="submitBtn" type="submit" class="btn btn-primary">
   Submit
 </button>
-</a>
 </form>
                   </div>
                 </div>
@@ -528,14 +527,14 @@ function checkFormValidity() {
     confirmMsg.textContent = "";
   }
 
-  if (validPassword && passwordsMatch) {
-    submitBtn.disabled = false;
-    submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
-  } else {
-    submitBtn.disabled = true;
-    submitBtn.classList.add("opacity-50", "cursor-not-allowed");
-  }
-}
+//   if (validPassword && passwordsMatch) {
+//     submitBtn.disabled = false;
+//     submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+//   } else {
+//     submitBtn.disabled = true;
+//     submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+//   }
+// }
 
 // Toggle password visibility
 function toggleVisibility(field, icon) {

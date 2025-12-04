@@ -10,4 +10,8 @@ router.get('/login', controller.loginForm);
 
 router.post('/login', storeReturnTo, loginAuthenticate, controller.login);
 
+router.get('/signup', controller.signupForm);
+
+router.post('/signup', catchAsync(controller.signup))
+
 module.exports = router;
