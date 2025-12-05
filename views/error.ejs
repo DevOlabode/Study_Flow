@@ -1,0 +1,61 @@
+<% layout('layout/boilerplate.ejs') %>
+<style>
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
+<section class="relative min-h-screen bg-gray-900 flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-orange-500/20 to-purple-500/20 blur-3xl"></div>
+  <canvas id="particles" class="absolute inset-0"></canvas>
+  <div class="relative z-10 text-center text-white px-6">
+    <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-orange-400 drop-shadow-[0_0_20px_rgba(255,150,200,0.6)]">
+      Oops!
+    </h1>
+    <p class="text-xl md:text-2xl mb-8 text-gray-300"><%= message %></p>
+    <a href="/" class="inline-block bg-gradient-to-r from-pink-500 to-orange-400 hover:from-pink-600 hover:to-orange-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transform transition duration-300">
+      Go Home
+    </a>
+  </div>
+</section>
+<script>
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  for (let i = 0; i < 50; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 3 + 1,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.3
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,180,220,0.7)";
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>

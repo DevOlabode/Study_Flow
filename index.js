@@ -65,17 +65,7 @@ app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Something Went Wrong!";
 
-  res.status(statusCode).send(`
-    <!DOCTYPE html>
-    <html>
-      <head><title>Error ${statusCode}</title></head>
-      <body>
-        <h1>Error ${statusCode}</h1>
-        <p>${message}</p>
-        <a href="/">Back to Home</a>
-      </body>
-    </html>
-  `);
+  res.render('error', {message, statusCode})
 });
 
 const PORT = process.env.PORT;

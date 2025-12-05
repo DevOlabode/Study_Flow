@@ -1,38 +1,46 @@
 <% if(success && success.length){ %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle me-2"></i>
-        <%= success %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <div class="bg-green-500 text-white rounded-lg p-4 mb-4 flex justify-between items-center shadow-lg">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <%= success %>
+        </div>
+        <button type="button" class="text-white hover:text-gray-200" onclick="this.parentElement.style.display='none'">
             <i class="fas fa-times"></i>
         </button>
     </div>
 <% } %>
 
 <% if(error && error.length){ %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="fas fa-exclamation-circle me-2"></i>
-        <%= error %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <div class="bg-red-500 text-white rounded-lg p-4 mb-4 flex justify-between items-center shadow-lg">
+        <div class="flex items-center">
+            <i class="fas fa-exclamation-circle mr-2"></i>
+            <%= error %>
+        </div>
+        <button type="button" class="text-white hover:text-gray-200" onclick="this.parentElement.style.display='none'">
             <i class="fas fa-times"></i>
         </button>
     </div>
 <% } %>
 
 <% if(warning && warning.length){ %>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <i class="fas fa-exclamation-triangle me-2"></i>
-        <%= warning %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <div class="bg-yellow-500 text-black rounded-lg p-4 mb-4 flex justify-between items-center shadow-lg">
+        <div class="flex items-center">
+            <i class="fas fa-exclamation-triangle mr-2"></i>
+            <%= warning %>
+        </div>
+        <button type="button" class="text-black hover:text-gray-700" onclick="this.parentElement.style.display='none'">
             <i class="fas fa-times"></i>
         </button>
     </div>
 <% } %>
 
 <% if(info && info.length){ %>
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="fas fa-info-circle me-2"></i>
-        <%= info %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <div class="bg-blue-500 text-white rounded-lg p-4 mb-4 flex justify-between items-center shadow-lg">
+        <div class="flex items-center">
+            <i class="fas fa-info-circle mr-2"></i>
+            <%= info %>
+        </div>
+        <button type="button" class="text-white hover:text-gray-200" onclick="this.parentElement.style.display='none'">
             <i class="fas fa-times"></i>
         </button>
     </div>
