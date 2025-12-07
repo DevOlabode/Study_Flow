@@ -29,10 +29,34 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
+
+passport.use(new LocalStrategy(
+    { 
+        usernameField: 'email',
+        passwordField: 'password'
+    },
+    async (email, password, done) => {
+        try {
+            const user = await User.findOne({ email: email });
+            if (!user) {
+                return done(null, false, { message: 'Incorrect email or password.' });
+            }
+            
+            const result = await user.authenticate(password);
+            if (result.user) {
+                return done(null, result.user);
+            } else {
+                return done(null, false, { message: 'Incorrect email or password.' });
+            }
+        } catch (err) {
+            return done(err);
+        }
+    }
+));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 
 app.use(express.static(path.join(__dirname, "views")));
 
@@ -40,20 +64,19 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended : true}));
 app.engine('ejs', ejsMate);
 
-
 app.use((req, res, next)=>{
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     res.locals.info = req.flash('info');
-    res.locals.warning = req.flash('warning')
+    res.locals.warning = req.flash('warning');
     next();
 });
+
 
 app.use('/', authRoutes);
 
 app.get('/', (req,res) =>{
-  req.flash('success', 'The Homepage')
   res.render('index')
 });
 
