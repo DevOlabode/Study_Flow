@@ -25,4 +25,12 @@ module.exports.signup = async(req, res, next) =>{
         req.flash('success', 'Welcome The StudyFlow');
         res.redirect('/')
     })
-}
+};
+
+module.exports.logout = async(req, res)=>{
+    req.logout(err=>{
+        if(err) return next(err);
+        req.flash('success', "Successfully Signed Out");
+        res.redirect('/')
+    })
+};

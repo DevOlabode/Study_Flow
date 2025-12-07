@@ -12,6 +12,8 @@ router.post('/login', storeReturnTo, loginAuthenticate, controller.login);
 
 router.get('/signup', redirectIfLoggedIn, controller.signupForm);
 
-router.post('/signup', catchAsync(controller.signup))
+router.post('/signup', catchAsync(controller.signup));
+
+router.get('/logout', controller.logout);
 
 module.exports = router;
